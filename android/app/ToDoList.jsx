@@ -1,34 +1,19 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import {ScrollView, Pressable, View, Text, StyleSheet} from 'react-native';
-export default function ToDoList() {
+export default function ToDoList(tasks) {
   return (
     <ScrollView>
-      <Pressable>
-        <View style={[styles.task, styles.completed]}>
-          <Text style={styles.taskText}>Do laundry</Text>
-        </View>
-      </Pressable>
-      <Pressable>
-        <View style={[styles.task]}>
-          <Text style={styles.taskText}>Go to gym</Text>
-        </View>
-      </Pressable>
-      <Pressable>
-        <View style={[styles.task, styles.completed]}>
-          <Text style={styles.taskText}>Walk dog</Text>
-        </View>
-      </Pressable>
-      <Pressable>
-        <View style={[styles.task]}>
-          <Text style={styles.taskText}>Go shopping</Text>
-        </View>
-      </Pressable>
-      <Pressable>
-        <View style={[styles.task, styles.completed]}>
-          <Text style={styles.taskText}>Grocery shopping</Text>
-        </View>
-      </Pressable>
+      {tasks.map((task, index) => {
+        return (
+          <Pressable key={index}>
+            <View style={[styles.task, styles.completed]}>
+              <Text style={styles.taskText}>{task}</Text>
+            </View>
+          </Pressable>
+        );
+      })}
+
     </ScrollView>
   );
 }
