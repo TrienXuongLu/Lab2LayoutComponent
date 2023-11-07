@@ -1,17 +1,18 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import {ScrollView, Pressable, View, Text, StyleSheet} from 'react-native';
-export default function ToDoList(tasks) {
+
+export default function ToDoList({tasks}) {
   return (
     <ScrollView>
       {tasks.map((task, index) => {
-        return (
+        <React.Fragment key={index}>
           <Pressable key={index}>
             <View style={[styles.task, styles.completed]}>
               <Text style={styles.taskText}>{task}</Text>
             </View>
           </Pressable>
-        );
+        </React.Fragment>
       })}
 
     </ScrollView>
